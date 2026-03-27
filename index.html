@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="unsafe-url">
   <title>동탄 상권분석 보고서 | 영업부</title>
 
   <!-- Google Fonts -->
@@ -12,15 +13,25 @@
   <!-- 스타일 -->
   <link rel="stylesheet" href="css/report.css">
 
-  <!-- 네이버 지도 API (config.js에서 CLIENT_ID 읽음) -->
-  <script src="js/config.js"></script>
-  <script>
-    // config.js 가 NAVER_MAP_CLIENT_ID 를 전역 변수로 노출
-    document.write('<scr' + 'ipt type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=' + NAVER_MAP_CLIENT_ID + '"></scr' + 'ipt>');
-  </script>
-
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+
+  <!-- 네이버 지도 API: config.js 로드 후 동적으로 삽입 -->
+  <script src="js/config.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (typeof CONFIG === 'undefined' || !CONFIG.NAVER_CLIENT_ID) return;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=' + CONFIG.NAVER_CLIENT_ID;
+      s.onload = function () {
+        if (typeof initMapOverview === 'function') initMapOverview();
+        if (typeof initMapTransport === 'function') initMapTransport();
+        if (typeof initMapCompetition === 'function') initMapCompetition();
+      };
+      document.head.appendChild(s);
+    });
+  </script>
 </head>
 <body>
 

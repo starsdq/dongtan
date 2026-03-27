@@ -97,6 +97,4 @@ async function initMapOverview() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof naver !== 'undefined') initMapOverview();
-});
+// 초기화는 index.html의 네이버 API onload 콜백에서 호출됨
