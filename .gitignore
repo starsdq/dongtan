@@ -1,0 +1,22 @@
+# Claude Code 내부 디렉토리
+.claude/
+
+# API 키 (절대 커밋 금지)
+js/config.js
+.env
+
+# 원본 데이터 (용량 크고 재수집 가능)
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

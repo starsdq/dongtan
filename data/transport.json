@@ -1,0 +1,34 @@
+{
+  "_comment": "교통 접근성 데이터",
+  "_updated": "2025-12",
+  "stations": [
+    {
+      "name": "GTX-A 동탄역 / SRT 동탄역",
+      "lat": 37.2002,
+      "lng": 127.0758,
+      "lines": ["GTX-A", "SRT"],
+      "type": "gtx_srt",
+      "note": "GTX-A 2024.3 개통. 수서까지 19분"
+    },
+    {
+      "name": "서동탄역 (수도권 1호선)",
+      "lat": 37.1940,
+      "lng": 127.0567,
+      "lines": ["1호선"],
+      "type": "subway",
+      "note": "동탄1 서부 접근"
+    }
+  ],
+  "access_times": [
+    { "destination": "서울 수서역",  "gtx_min": 19, "car_min": 40, "bus_min": 70 },
+    { "destination": "서울 강남",    "gtx_min": 25, "car_min": 50, "bus_min": 80 },
+    { "destination": "수원",         "gtx_min": null, "car_min": 25, "bus_min": 40 },
+    { "destination": "판교",         "gtx_min": null, "car_min": 35, "bus_min": 55 },
+    { "destination": "오산",         "gtx_min": null, "car_min": 15, "bus_min": 25 },
+    { "destination": "인천공항",     "gtx_min": null, "car_min": 75, "bus_min": 110 }
+  ],
+  "radius_circles": [
+    { "label": "차량 30분 반경",  "radius_km": 25, "color": "#3498db", "opacity": 0.08 },
+    { "label": "차량 60분 반경",  "radius_km": 50, "color": "#e74c3c", "opacity": 0.06 }
+  ]
+}

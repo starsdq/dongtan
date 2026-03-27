@@ -1,0 +1,342 @@
+/* ===========================
+   동탄 상권분석 보고서 스타일
+   =========================== */
+
+:root {
+  --primary: #1a3a5c;
+  --accent: #2e86c1;
+  --accent-light: #aed6f1;
+  --bg: #f4f6f9;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-muted: #7f8c8d;
+  --border: #dce3ea;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ── 헤더 ── */
+.report-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #2e4f7c 100%);
+  color: #fff;
+  padding: 48px 0 36px;
+  text-align: center;
+}
+.report-header .label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+.report-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.report-header .subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+.report-header .meta {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* ── 네비게이션 ── */
+.report-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary);
+  border-bottom: 2px solid var(--accent);
+}
+.report-nav ul {
+  display: flex;
+  list-style: none;
+  overflow-x: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.report-nav ul::-webkit-scrollbar { height: 0; }
+.report-nav ul li a {
+  display: block;
+  padding: 14px 18px;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.report-nav ul li a:hover,
+.report-nav ul li a.active {
+  color: #fff;
+  border-bottom: 2px solid var(--accent-light);
+}
+
+/* ── 레이아웃 ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── 챕터 섹션 ── */
+.chapter {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+.chapter:last-child { border-bottom: none; }
+
+.chapter-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.chapter h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.chapter .chapter-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+/* ── 카드 ── */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── KPI 카드 그리드 ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  border-top: 4px solid var(--accent);
+}
+.kpi-card .kpi-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.kpi-card .kpi-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+.kpi-card .kpi-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.kpi-card .kpi-note {
+  font-size: 11px;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+/* ── 지도 컨테이너 ── */
+.map-container {
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+.map-container.tall { height: 560px; }
+.map-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* ── 차트 컨테이너 ── */
+.chart-container {
+  width: 100%;
+  height: 360px;
+}
+.chart-container.tall { height: 440px; }
+
+/* ── 2컬럼 그리드 ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 720px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── 접근 시간 테이블 ── */
+.access-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.access-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+.access-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.access-table tr:last-child td { border-bottom: none; }
+.access-table tr:hover td { background: #f0f4f8; }
+.access-table .highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--accent-light);
+  color: var(--primary);
+}
+.badge.red   { background: #fde8e8; color: var(--danger); }
+.badge.green { background: #d5f5e3; color: var(--success); }
+
+/* ── 범례 ── */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── SWOT ── */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.swot-card {
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.swot-card.strength { background: #d5f5e3; border-left: 4px solid var(--success); }
+.swot-card.weakness { background: #fde8e8; border-left: 4px solid var(--danger); }
+.swot-card.opportunity { background: #d6eaf8; border-left: 4px solid var(--accent); }
+.swot-card.threat { background: #fef9e7; border-left: 4px solid var(--warning); }
+.swot-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.swot-card ul {
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ── 전략 카드 ── */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.strategy-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  border-top: 4px solid var(--accent);
+}
+.strategy-card .icon { font-size: 28px; margin-bottom: 10px; }
+.strategy-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.strategy-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* ── 푸터 ── */
+.report-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+}
+
+/* ── 로딩 스피너 ── */
+.map-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #f0f4f8;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .report-header h1 { font-size: 1.5rem; }
+  .chapter h2 { font-size: 1.3rem; }
+  .kpi-card .kpi-value { font-size: 1.4rem; }
+  .swot-grid { grid-template-columns: 1fr; }
+  .map-container { height: 360px; }
+}
