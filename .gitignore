@@ -14,6 +14,7 @@ data/raw/
 # 노트북 중간 출력 파일 (재실행으로 재생성 가능)
 notebooks/*.json
 main.py
+process_stores.py
 
 # Python
 __pycache__/
