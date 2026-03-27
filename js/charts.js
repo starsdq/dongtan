@@ -15,7 +15,7 @@ const CHART_LAYOUT_BASE = {
   colorway: ['#2e86c1', '#e74c3c', '#27ae60', '#f39c12', '#8e44ad']
 };
 
-const CONFIG = { responsive: true, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d'] };
+const PLOTLY_CONFIG = { responsive: true, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d'] };
 
 /* ── 인구 성장 추이 ── */
 async function renderPopGrowth() {
@@ -36,7 +36,7 @@ async function renderPopGrowth() {
     title: { text: '동탄 인구 성장 추이 (만명)', font: { size: 14 } },
     xaxis: { title: '', showgrid: false },
     yaxis: { title: '인구 (만명)', gridcolor: '#eaeaea' }
-  }, CONFIG);
+  }, PLOTLY_CONFIG);
 }
 
 /* ── 연령대별 인구 피라미드 ── */
@@ -74,7 +74,7 @@ async function renderAgePyramid() {
     yaxis: { automargin: true },
     legend: { orientation: 'h', y: -0.15 },
     margin: { t: 40, r: 20, b: 60, l: 80 }
-  }, CONFIG);
+  }, PLOTLY_CONFIG);
 }
 
 /* ── 업종별 추정 월 매출 ── */
@@ -96,7 +96,7 @@ async function renderIndustrySales() {
     xaxis: { title: '월평균 매출 (백만원)', gridcolor: '#eaeaea' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 20, b: 60, l: 100 }
-  }, CONFIG);
+  }, PLOTLY_CONFIG);
 }
 
 /* ── 점포 개폐업 추이 ── */
@@ -136,7 +136,7 @@ async function renderStoreTrend() {
       showgrid: false, zeroline: true, zerolinecolor: '#ccc'
     },
     legend: { orientation: 'h', y: -0.18 }
-  }, CONFIG);
+  }, PLOTLY_CONFIG);
 }
 
 /* ── 유동인구 시간대 히트맵 ── */
@@ -160,7 +160,7 @@ async function renderFootfallHeatmap() {
     xaxis: { title: '시간대' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 80, b: 60, l: 70 }
-  }, CONFIG);
+  }, PLOTLY_CONFIG);
 }
 
 /* ── 전체 초기화 ── */
