@@ -1,10 +1,12 @@
 # Claude Code 내부 디렉토리
 .claude/
 
-# API 키 (절대 커밋 금지)
-js/config.js
+# Python API 키 (절대 커밋 금지 - 서버 사이드 키)
 .env
 notebooks/api_keys.py
+
+# 네이버 지도 클라이언트 키는 도메인 제한으로 보호되므로 커밋 허용
+# js/config.js
 
 # 원본 데이터 (용량 크고 재수집 가능)
 data/raw/
