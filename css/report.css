@@ -358,10 +358,64 @@ body {
   font-size: 13px;
 }
 
+/* ══ 반응형 ══════════════════════════════ */
+
+/* 태블릿 (≤ 768px) */
+@media (max-width: 768px) {
+  .container { padding: 0 14px; }
+  .chapter { padding: 40px 0 28px; }
+  .card { padding: 18px 16px; }
+  .kpi-grid { gap: 12px; }
+  .strategy-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+
+/* 모바일 (≤ 600px) */
 @media (max-width: 600px) {
-  .report-header h1 { font-size: 1.5rem; }
-  .chapter h2 { font-size: 1.3rem; }
+  /* 헤더·챕터 */
+  .report-header { padding: 32px 0 24px; }
+  .report-header h1 { font-size: 1.45rem; }
+  .report-header .subtitle { font-size: 0.9rem; }
+  .chapter { padding: 32px 0 22px; }
+  .chapter h2 { font-size: 1.25rem; }
+
+  /* 카드 */
+  .card { padding: 16px 14px; margin-bottom: 14px; }
+
+  /* KPI */
+  .kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi-card { padding: 14px 14px; }
   .kpi-card .kpi-value { font-size: 1.4rem; }
+
+  /* 지도 */
+  .map-container { height: 300px; }
+  .map-container.tall { height: 340px; }
+
+  /* 차트 */
+  .chart-container { height: 280px; }
+  .chart-container.tall { height: 320px; }
+
+  /* 테이블: 가로 스크롤 */
+  .access-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 13px;
+  }
+  .access-table th,
+  .access-table td { padding: 8px 10px; white-space: nowrap; }
+
+  /* SWOT */
   .swot-grid { grid-template-columns: 1fr; }
-  .map-container { height: 360px; }
+
+  /* 전략 카드 */
+  .strategy-grid { grid-template-columns: 1fr; }
+}
+
+/* 소형 모바일 (≤ 420px) */
+@media (max-width: 420px) {
+  .report-header h1 { font-size: 1.2rem; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .map-container,
+  .map-container.tall { height: 280px; }
+  .chart-container { height: 240px; }
 }
