@@ -92,7 +92,7 @@ async function renderIndustrySales() {
     hovertemplate: '%{y}: %{x}백만원/월<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '업종별 추정 월평균 매출 (백만원)', font: { size: 14 } },
+    title: { text: '업종별 월평균 매출 (백만원, 가로상권 합산)', font: { size: 14 } },
     xaxis: { title: '월평균 매출 (백만원)', gridcolor: '#eaeaea' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 20, b: 60, l: 100 }

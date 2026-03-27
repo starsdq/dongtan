@@ -1,32 +1,121 @@
 {
-  "_comment": "업종별 추정 매출 및 상권 현황. 출처: 경기도 상권영향분석서비스, 소상공인365",
-  "_updated": "2025-12",
+  "_comment": "업종별 월평균 매출. 출처: 경기데이터드림 TBGGESTDEVALLSTM (2025년 2분기, 동탄 내 18개 가로상권 합산)",
+  "_updated": "2026-03",
   "industry_sales": [
-    { "industry": "외식",         "monthly_avg_mil": 4800, "store_count": 1850 },
-    { "industry": "패션·의류",    "monthly_avg_mil": 3200, "store_count": 620 },
-    { "industry": "식품·마트",    "monthly_avg_mil": 2900, "store_count": 480 },
-    { "industry": "뷰티·화장품",  "monthly_avg_mil": 1400, "store_count": 390 },
-    { "industry": "스포츠·레저",  "monthly_avg_mil": 890,  "store_count": 210 },
-    { "industry": "가전·IT",      "monthly_avg_mil": 1650, "store_count": 175 },
-    { "industry": "가구·인테리어","monthly_avg_mil": 1200, "store_count": 140 },
-    { "industry": "의료·건강",    "monthly_avg_mil": 2100, "store_count": 520 },
-    { "industry": "교육·학원",    "monthly_avg_mil": 3500, "store_count": 780 },
-    { "industry": "금융·보험",    "monthly_avg_mil": 580,  "store_count": 95 }
+    {
+      "industry": "외식",
+      "monthly_avg_mil": 26946
+    },
+    {
+      "industry": "식품·소매",
+      "monthly_avg_mil": 20468
+    },
+    {
+      "industry": "의료·건강",
+      "monthly_avg_mil": 9758
+    },
+    {
+      "industry": "교육·학원",
+      "monthly_avg_mil": 3542
+    },
+    {
+      "industry": "뷰티·미용",
+      "monthly_avg_mil": 1630
+    },
+    {
+      "industry": "스포츠·여가",
+      "monthly_avg_mil": 93
+    }
   ],
   "store_trend": [
-    { "year": 2018, "opened": 820, "closed": 590, "net": 230 },
-    { "year": 2019, "opened": 950, "closed": 640, "net": 310 },
-    { "year": 2020, "opened": 680, "closed": 820, "net": -140 },
-    { "year": 2021, "opened": 1050, "closed": 710, "net": 340 },
-    { "year": 2022, "opened": 1280, "closed": 780, "net": 500 },
-    { "year": 2023, "opened": 1350, "closed": 820, "net": 530 },
-    { "year": 2024, "opened": 1420, "closed": 890, "net": 530 }
+    {
+      "year": 2018,
+      "opened": 820,
+      "closed": 590,
+      "net": 230
+    },
+    {
+      "year": 2019,
+      "opened": 950,
+      "closed": 640,
+      "net": 310
+    },
+    {
+      "year": 2020,
+      "opened": 680,
+      "closed": 820,
+      "net": -140
+    },
+    {
+      "year": 2021,
+      "opened": 1050,
+      "closed": 710,
+      "net": 340
+    },
+    {
+      "year": 2022,
+      "opened": 1280,
+      "closed": 780,
+      "net": 500
+    },
+    {
+      "year": 2023,
+      "opened": 1350,
+      "closed": 820,
+      "net": 530
+    },
+    {
+      "year": 2024,
+      "opened": 1420,
+      "closed": 890,
+      "net": 530
+    }
   ],
   "hourly_footfall": {
     "_note": "시간대×요일 유동인구 지수 (100 = 평균)",
-    "hours": ["6시","8시","10시","12시","14시","16시","18시","20시","22시"],
-    "weekday": [20, 55, 72, 95, 88, 82, 100, 85, 42],
-    "saturday": [15, 35, 68, 105, 115, 118, 112, 108, 65],
-    "sunday":   [12, 28, 72, 110, 120, 122, 108, 102, 58]
+    "hours": [
+      "6시",
+      "8시",
+      "10시",
+      "12시",
+      "14시",
+      "16시",
+      "18시",
+      "20시",
+      "22시"
+    ],
+    "weekday": [
+      20,
+      55,
+      72,
+      95,
+      88,
+      82,
+      100,
+      85,
+      42
+    ],
+    "saturday": [
+      15,
+      35,
+      68,
+      105,
+      115,
+      118,
+      112,
+      108,
+      65
+    ],
+    "sunday": [
+      12,
+      28,
+      72,
+      110,
+      120,
+      122,
+      108,
+      102,
+      58
+    ]
   }
 }
