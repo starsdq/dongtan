@@ -23,7 +23,7 @@
       if (typeof CONFIG === 'undefined' || !CONFIG.NAVER_CLIENT_ID) return;
       var s = document.createElement('script');
       s.type = 'text/javascript';
-      s.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=' + CONFIG.NAVER_CLIENT_ID;
+      s.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=' + CONFIG.NAVER_CLIENT_ID + '&submodules=visualization';
       s.onload = function () {
         if (typeof initMapOverview === 'function') initMapOverview();
         if (typeof initMapTransport === 'function') initMapTransport();
@@ -275,6 +275,9 @@
 
     <div class="card">
       <h3>경쟁 시설 위치 (마커 클릭 시 상세 정보)</h3>
+      <div class="map-toolbar">
+        <button id="btn-heatmap" class="map-btn" disabled>상가 밀도 히트맵</button>
+      </div>
       <div id="map-competition" class="map-container tall">
         <div class="map-loading">지도 로딩 중…</div>
       </div>
@@ -341,9 +344,14 @@
         <div id="chart-store-trend" class="chart-container"></div>
       </div>
       <div class="card">
-        <h3>업종별 추정 월평균 매출</h3>
+        <h3>업종별 월평균 매출</h3>
         <div id="chart-industry-sales" class="chart-container"></div>
       </div>
+    </div>
+
+    <div class="card">
+      <h3>업종별 점포 수 (소상공인진흥공단 B553077, 동탄 반경 3km)</h3>
+      <div id="chart-store-count" class="chart-container"></div>
     </div>
   </div>
 </section>

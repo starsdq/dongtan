@@ -2,11 +2,16 @@
    4장: 경쟁 상권 지도
    - 백화점·쇼핑몰·아울렛·가구 카테고리별 마커
    - 클릭 시 시설 정보 팝업
+   - 상가 밀도 히트맵 레이어 (토글)
    ===================================================== */
 
 async function initMapCompetition() {
-  const res = await fetch('data/competitors.json');
-  const data = await res.json();
+  const [competitorsRes, storesRes] = await Promise.all([
+    fetch('data/competitors.json'),
+    fetch('data/stores.json')
+  ]);
+  const data = await competitorsRes.json();
+  const storeData = await storesRes.json();
 
   const map = new naver.maps.Map('map-competition', {
     center: new naver.maps.LatLng(37.24, 127.07),
@@ -78,6 +83,33 @@ async function initMapCompetition() {
       item.className = 'legend-item';
       item.innerHTML = `<span class="legend-dot" style="background:${cat.color}"></span>${cat.label}`;
       legendDiv.appendChild(item);
+    });
+  }
+
+  // ── 상가 밀도 히트맵 ──
+  if (!naver.maps.visualization) return;
+
+  const heatmapPoints = storeData.stores.map(s =>
+    new naver.maps.LatLng(s.lat, s.lon)
+  );
+
+  const heatMapLayer = new naver.maps.visualization.HeatMap({
+    map: null,  // 초기에는 숨김
+    data: heatmapPoints,
+    radius: 20,
+    opacity: 0.65,
+    colorMap: naver.maps.visualization.SpectrumStyle.FIRE
+  });
+
+  let heatMapShown = false;
+  const toggleBtn = document.getElementById('btn-heatmap');
+  if (toggleBtn) {
+    toggleBtn.disabled = false;
+    toggleBtn.addEventListener('click', () => {
+      heatMapShown = !heatMapShown;
+      heatMapLayer.setMap(heatMapShown ? map : null);
+      toggleBtn.textContent = heatMapShown ? '히트맵 숨기기' : '상가 밀도 히트맵';
+      toggleBtn.classList.toggle('active', heatMapShown);
     });
   }
 }

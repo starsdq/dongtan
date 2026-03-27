@@ -322,6 +322,31 @@ body {
   font-size: 12px;
 }
 
+/* ── 지도 툴바 ── */
+.map-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.map-btn {
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.map-btn:hover:not(:disabled) { background: #f0f4f8; }
+.map-btn:disabled { opacity: 0.4; cursor: default; }
+.map-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 /* ── 로딩 스피너 ── */
 .map-loading {
   display: flex;

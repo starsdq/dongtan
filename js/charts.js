@@ -163,6 +163,30 @@ async function renderFootfallHeatmap() {
   }, PLOTLY_CONFIG);
 }
 
+/* ── 업종별 점포 수 ── */
+async function renderStoreCount() {
+  const res = await fetch('data/sales_trend.json');
+  const { industry_store_count } = await res.json();
+
+  const entries = Object.entries(industry_store_count)
+    .filter(([k]) => !k.startsWith('_'))
+    .sort((a, b) => b[1] - a[1]);
+
+  Plotly.newPlot('chart-store-count', [{
+    x: entries.map(([, v]) => v),
+    y: entries.map(([k]) => k),
+    type: 'bar', orientation: 'h',
+    marker: { color: entries.map((_, i) => `hsl(${210 - i * 18}, 65%, ${52 + i * 3}%)`) },
+    hovertemplate: '%{y}: %{x}개<extra></extra>'
+  }], {
+    ...CHART_LAYOUT_BASE,
+    title: { text: '업종별 점포 수 (동탄 반경 3km, 2024년)', font: { size: 14 } },
+    xaxis: { title: '점포 수 (개)', gridcolor: '#eaeaea' },
+    yaxis: { automargin: true },
+    margin: { t: 40, r: 20, b: 60, l: 90 }
+  }, PLOTLY_CONFIG);
+}
+
 /* ── 전체 초기화 ── */
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof Plotly === 'undefined') return;
@@ -171,4 +195,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderIndustrySales();
   renderStoreTrend();
   renderFootfallHeatmap();
+  renderStoreCount();
 });
