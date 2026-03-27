@@ -11,6 +11,10 @@ notebooks/api_keys.py
 # 원본 데이터 (용량 크고 재수집 가능)
 data/raw/
 
+# 노트북 중간 출력 파일 (재실행으로 재생성 가능)
+notebooks/*.json
+main.py
+
 # Python
 __pycache__/
 *.pyc
