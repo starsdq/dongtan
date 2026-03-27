@@ -4,6 +4,7 @@
 # API 키 (절대 커밋 금지)
 js/config.js
 .env
+notebooks/api_keys.py
 
 # 원본 데이터 (용량 크고 재수집 가능)
 data/raw/
