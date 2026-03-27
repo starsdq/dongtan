@@ -7,4 +7,6 @@
 //   https://starsdq.github.io
 //   http://localhost:8000
 
-const NAVER_MAP_CLIENT_ID = 'YOUR_NAVER_MAP_CLIENT_ID_HERE';
+const CONFIG = {
+    NAVER_CLIENT_ID: 'YOUR_NAVER_CLIENT_ID_HERE'
+};
