@@ -1,0 +1,11 @@
+[project]
+name = "dongtan"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.1",
+    "publicdatareader>=1.1.0",
+    "requests>=2.33.0",
+]

@@ -67,9 +67,9 @@ async function renderAgePyramid() {
     bargap: 0.15,
     xaxis: {
       tickformat: 'd',
-      tickvals: [-35, -25, -15, -5, 5, 15, 25, 35],
-      ticktext: ['35', '25', '15', '5', '5', '15', '25', '35'],
-      gridcolor: '#eaeaea', title: '← 남성  /  여성 →'
+      tickvals: [-100, -75, -50, -25, 25, 50, 75, 100],
+      ticktext: ['100', '75', '50', '25', '25', '50', '75', '100'],
+      gridcolor: '#eaeaea', title: '← 남성 (천명)  /  여성 (천명) →'
     },
     yaxis: { automargin: true },
     legend: { orientation: 'h', y: -0.15 },

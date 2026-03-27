@@ -1,51 +1,145 @@
 {
-  "_comment": "출처: 행정안전부 주민등록인구통계 (jumin.mois.go.kr) / 통계청 KOSIS",
-  "_updated": "2025-12",
-  "summary": {
-    "dongtan1_population": 123936,
-    "dongtan2_population": 298617,
-    "total_population": 422553,
-    "hwaseong_total": 1050000,
-    "dongtan_share_pct": 40.2,
-    "avg_age": 34.7
-  },
   "yearly_growth": [
-    { "year": 2005, "population": 12000 },
-    { "year": 2007, "population": 45000 },
-    { "year": 2009, "population": 82000 },
-    { "year": 2011, "population": 110000 },
-    { "year": 2013, "population": 138000 },
-    { "year": 2015, "population": 175000 },
-    { "year": 2017, "population": 220000 },
-    { "year": 2019, "population": 280000 },
-    { "year": 2021, "population": 340000 },
-    { "year": 2023, "population": 390000 },
-    { "year": 2025, "population": 422553 }
+    {
+      "year": 2005,
+      "population": 296530
+    },
+    {
+      "year": 2006,
+      "population": 310171
+    },
+    {
+      "year": 2007,
+      "population": 371972
+    },
+    {
+      "year": 2008,
+      "population": 449354
+    },
+    {
+      "year": 2009,
+      "population": 491528
+    },
+    {
+      "year": 2010,
+      "population": 505838
+    },
+    {
+      "year": 2011,
+      "population": 516765
+    },
+    {
+      "year": 2012,
+      "population": 525490
+    },
+    {
+      "year": 2013,
+      "population": 530251
+    },
+    {
+      "year": 2014,
+      "population": 540862
+    },
+    {
+      "year": 2015,
+      "population": 596525
+    },
+    {
+      "year": 2016,
+      "population": 640890
+    },
+    {
+      "year": 2017,
+      "population": 691086
+    },
+    {
+      "year": 2018,
+      "population": 758722
+    },
+    {
+      "year": 2019,
+      "population": 815396
+    },
+    {
+      "year": 2020,
+      "population": 855248
+    },
+    {
+      "year": 2021,
+      "population": 887015
+    },
+    {
+      "year": 2022,
+      "population": 910814
+    },
+    {
+      "year": 2023,
+      "population": 944342
+    },
+    {
+      "year": 2024,
+      "population": 968821
+    }
   ],
   "age_groups": [
-    { "group": "0-9세",   "male": 22100, "female": 21000 },
-    { "group": "10-19세", "male": 19800, "female": 18700 },
-    { "group": "20-29세", "male": 28500, "female": 27200 },
-    { "group": "30-39세", "male": 38900, "female": 37600 },
-    { "group": "40-49세", "male": 35200, "female": 34100 },
-    { "group": "50-59세", "male": 24300, "female": 23800 },
-    { "group": "60-69세", "male": 13200, "female": 13900 },
-    { "group": "70세+",   "male": 6500,  "female": 8600 }
+    {
+      "group": "0~9세",
+      "male": 47227,
+      "female": 44970
+    },
+    {
+      "group": "10~19세",
+      "male": 57663,
+      "female": 55724
+    },
+    {
+      "group": "20~29세",
+      "male": 59663,
+      "female": 51204
+    },
+    {
+      "group": "30~39세",
+      "male": 85161,
+      "female": 75417
+    },
+    {
+      "group": "40~49세",
+      "male": 97395,
+      "female": 87842
+    },
+    {
+      "group": "50~59세",
+      "male": 77538,
+      "female": 67814
+    },
+    {
+      "group": "60~69세",
+      "male": 50362,
+      "female": 46802
+    },
+    {
+      "group": "70~79세",
+      "male": 20084,
+      "female": 21904
+    },
+    {
+      "group": "80세 이상",
+      "male": 7788,
+      "female": 14263
+    }
   ],
   "samsung_workplaces": [
     {
-      "name": "삼성전자 화성사업장 (메모리·파운드리)",
-      "lat": 37.2024,
-      "lng": 127.0738,
-      "employees_approx": 35000,
-      "note": "동탄2 인근"
+      "name": "삼성전자 화성캠퍼스 (반도체)",
+      "lat": 37.1983,
+      "lng": 127.0707,
+      "employees": 30000
     },
     {
-      "name": "삼성디스플레이 아산사업장",
-      "lat": 36.8219,
-      "lng": 127.0891,
-      "employees_approx": 15000,
-      "note": "아산 (1시간 이내)"
+      "name": "삼성전자 화성캠퍼스 (디스플레이)",
+      "lat": 37.2021,
+      "lng": 127.0644,
+      "employees": 5000
     }
   ]
 }
