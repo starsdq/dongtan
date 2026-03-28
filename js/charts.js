@@ -33,7 +33,7 @@ async function renderPopGrowth() {
     hovertemplate: '%{x}년: %{y}만명<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '동탄 인구 성장 추이 (만명)', font: { size: 14 } },
+    title: { text: '화성시 등록인구 성장 추이 (2005~2024, 만명)', font: { size: 14 } },
     xaxis: { title: '', showgrid: false },
     yaxis: { title: '인구 (만명)', gridcolor: '#eaeaea' }
   }, PLOTLY_CONFIG);
@@ -62,7 +62,7 @@ async function renderAgePyramid() {
     }
   ], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '연령대별 인구 구조 (천명)', font: { size: 14 } },
+    title: { text: '화성시 연령대별 인구 구조 (2024년, 천명)', font: { size: 14 } },
     barmode: 'overlay',
     bargap: 0.15,
     xaxis: {
@@ -92,7 +92,7 @@ async function renderIndustrySales() {
     hovertemplate: '%{y}: %{x}백만원/월<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '업종별 월평균 매출 (백만원, 가로상권 합산)', font: { size: 14 } },
+    title: { text: '업종별 월평균 매출 (동탄 가로상권 18개, 2025년 2분기, 백만원)', font: { size: 14 } },
     xaxis: { title: '월평균 매출 (백만원)', gridcolor: '#eaeaea' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 20, b: 60, l: 100 }
@@ -156,7 +156,7 @@ async function renderFootfallHeatmap() {
     colorbar: { title: '유동인구<br>지수', len: 0.8 }
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '시간대·요일별 유동인구 지수 (100=평균)', font: { size: 14 } },
+    title: { text: '시간대·요일별 유동인구 지수 (추정치, 100=평균)', font: { size: 14 } },
     xaxis: { title: '시간대' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 80, b: 60, l: 70 }
