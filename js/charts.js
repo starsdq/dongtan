@@ -173,28 +173,23 @@ async function renderPopWday() {
     d === '토' || d === '일' ? '#e74c3c' : '#27ae60'
   );
 
-  Plotly.newPlot('chart-pop-wday', [
-    {
-      x: pop_by_wday.labels,
-      y: pop_by_wday.index,
-      type: 'bar',
-      marker: { color: colors },
-      hovertemplate: '%{x}: 지수 %{y}<extra></extra>'
-    },
-    {
-      x: [pop_by_wday.labels[0], pop_by_wday.labels[pop_by_wday.labels.length - 1]],
-      y: [100, 100],
-      type: 'scatter', mode: 'lines',
-      line: { color: '#aaaaaa', width: 1.5, dash: 'dot' },
-      showlegend: false,
-      hoverinfo: 'skip'
-    }
-  ], {
+  Plotly.newPlot('chart-pop-wday', [{
+    x: pop_by_wday.labels,
+    y: pop_by_wday.index,
+    type: 'bar',
+    marker: { color: colors },
+    hovertemplate: '%{x}: 지수 %{y}<extra></extra>'
+  }], {
     ...CHART_LAYOUT_BASE,
     title: { text: '요일별 생활인구 지수 (화성시, 2025.06, 100=평균)', font: { size: 14 } },
     xaxis: { title: '' },
     yaxis: { title: '지수 (100=평균)', gridcolor: '#eaeaea', range: [70, 120] },
-    margin: { t: 40, r: 20, b: 50, l: 70 }
+    margin: { t: 40, r: 20, b: 50, l: 70 },
+    shapes: [{
+      type: 'line', xref: 'paper', x0: 0, x1: 1,
+      y0: 100, y1: 100,
+      line: { color: '#aaaaaa', width: 1.5, dash: 'dot' }
+    }]
   }, PLOTLY_CONFIG);
 }
 
