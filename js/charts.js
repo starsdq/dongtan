@@ -106,11 +106,23 @@ async function renderAgePyramid() {
     bargap: 0.1,
     xaxis: {
       tickformat: 'd',
-      gridcolor: '#eaeaea', title: '← 남성 (천명)  /  여성 (천명) →'
+      range: [-220, 220],
+      gridcolor: '#eaeaea',
+      zeroline: true, zerolinecolor: '#999', zerolinewidth: 1.5
     },
     yaxis: { automargin: true },
-    legend: { orientation: 'h', y: -0.18 },
-    margin: { t: 40, r: 20, b: 70, l: 80 }
+    legend: { orientation: 'h', y: -0.15 },
+    margin: { t: 40, r: 20, b: 80, l: 80 },
+    annotations: [
+      {
+        text: '← 남성 (천명)', x: -110, y: -0.12, xref: 'x', yref: 'paper',
+        showarrow: false, font: { size: 11, color: '#555' }, xanchor: 'center'
+      },
+      {
+        text: '여성 (천명) →', x: 110, y: -0.12, xref: 'x', yref: 'paper',
+        showarrow: false, font: { size: 11, color: '#555' }, xanchor: 'center'
+      }
+    ]
   }, PLOTLY_CONFIG);
 }
 
