@@ -17,63 +17,100 @@ const CHART_LAYOUT_BASE = {
 
 const PLOTLY_CONFIG = { responsive: true, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d'] };
 
-/* ── 인구 성장 추이 ── */
+/* ── 인구 성장 추이 (화성시 + 동탄) ── */
 async function renderPopGrowth() {
   const res = await fetch('data/population.json');
   const data = await res.json();
   const years = data.yearly_growth.map(d => d.year);
   const pops  = data.yearly_growth.map(d => Math.round(d.population / 10000 * 10) / 10);
 
-  Plotly.newPlot('chart-pop-growth', [{
-    x: years, y: pops,
-    type: 'scatter', mode: 'lines+markers',
-    line: { color: '#2e86c1', width: 3 },
-    marker: { size: 7, color: '#2e86c1' },
-    fill: 'tozeroy', fillcolor: 'rgba(46,134,193,0.1)',
-    hovertemplate: '%{x}년: %{y}만명<extra></extra>'
-  }], {
-    ...CHART_LAYOUT_BASE,
-    title: { text: '화성시 등록인구 성장 추이 (2005~2024, 만명)', font: { size: 14 } },
-    xaxis: { title: '', showgrid: false },
-    yaxis: { title: '인구 (만명)', gridcolor: '#eaeaea' }
-  }, PLOTLY_CONFIG);
-}
+  // 동탄 연간 (12월 기준)
+  const dtMonthly = data.dongtan_monthly?.data || [];
+  const dtYearly = {};
+  dtMonthly.forEach(d => {
+    if (d.ym.endsWith('12')) dtYearly[parseInt(d.ym.slice(0,4))] = d.population;
+  });
+  // 최신 월이 12월이 아니면 해당 연도도 추가
+  if (dtMonthly.length) {
+    const last = dtMonthly[dtMonthly.length - 1];
+    const yr = parseInt(last.ym.slice(0,4));
+    if (!dtYearly[yr]) dtYearly[yr] = last.population;
+  }
+  const dtYears = Object.keys(dtYearly).map(Number).sort();
+  const dtPops  = dtYears.map(y => Math.round(dtYearly[y] / 10000 * 10) / 10);
 
-/* ── 연령대별 인구 피라미드 ── */
-async function renderAgePyramid() {
-  const res = await fetch('data/population.json');
-  const { age_groups } = await res.json();
-
-  const groups = age_groups.map(d => d.group);
-  const males  = age_groups.map(d => -Math.round(d.male / 1000));   // 음수 = 왼쪽
-  const females = age_groups.map(d => Math.round(d.female / 1000));
-
-  Plotly.newPlot('chart-age-pyramid', [
+  const lastYear = years[years.length - 1];
+  Plotly.newPlot('chart-pop-growth', [
     {
-      name: '남성', x: males, y: groups, type: 'bar', orientation: 'h',
-      marker: { color: '#2e86c1' },
-      hovertemplate: '%{y}: %{customdata}천명<extra>남성</extra>',
-      customdata: males.map(v => Math.abs(v))
+      name: '화성시 전체', x: years, y: pops,
+      type: 'scatter', mode: 'lines+markers',
+      line: { color: '#2e86c1', width: 3 },
+      marker: { size: 7, color: '#2e86c1' },
+      fill: 'tozeroy', fillcolor: 'rgba(46,134,193,0.08)',
+      hovertemplate: '%{x}년 화성시: %{y}만명<extra></extra>'
     },
     {
-      name: '여성', x: females, y: groups, type: 'bar', orientation: 'h',
-      marker: { color: '#e74c3c' },
-      hovertemplate: '%{y}: %{x}천명<extra>여성</extra>'
+      name: '동탄 (9개동)', x: dtYears, y: dtPops,
+      type: 'scatter', mode: 'lines+markers',
+      line: { color: '#27ae60', width: 2.5, dash: 'dot' },
+      marker: { size: 7, color: '#27ae60' },
+      hovertemplate: '%{x}년 동탄: %{y}만명<extra></extra>'
     }
   ], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '화성시 연령대별 인구 구조 (2024년, 천명)', font: { size: 14 } },
-    barmode: 'overlay',
-    bargap: 0.15,
+    title: { text: `화성시·동탄 등록인구 추이 (2005~${lastYear}, 만명)`, font: { size: 14 } },
+    xaxis: { title: '', showgrid: false },
+    yaxis: { title: '인구 (만명)', gridcolor: '#eaeaea' },
+    legend: { orientation: 'h', y: -0.15 }
+  }, PLOTLY_CONFIG);
+}
+
+/* ── 연령대별 인구 피라미드 (화성시 + 동탄 비교) ── */
+async function renderAgePyramid() {
+  const res = await fetch('data/population.json');
+  const { age_groups, dongtan_age_groups } = await res.json();
+
+  const groups   = age_groups.map(d => d.group);
+  const hwaMales = age_groups.map(d => -Math.round(d.male / 1000));
+  const hwaFems  = age_groups.map(d => Math.round(d.female / 1000));
+  const dtMales  = (dongtan_age_groups?.groups || []).map(d => -Math.round(d.male / 1000));
+  const dtFems   = (dongtan_age_groups?.groups || []).map(d => Math.round(d.female / 1000));
+
+  Plotly.newPlot('chart-age-pyramid', [
+    {
+      name: '화성시 남', x: hwaMales, y: groups, type: 'bar', orientation: 'h',
+      marker: { color: 'rgba(46,134,193,0.85)' },
+      hovertemplate: '%{y}: %{customdata}천명<extra>화성시 남</extra>',
+      customdata: hwaMales.map(v => Math.abs(v))
+    },
+    {
+      name: '화성시 여', x: hwaFems, y: groups, type: 'bar', orientation: 'h',
+      marker: { color: 'rgba(231,76,60,0.85)' },
+      hovertemplate: '%{y}: %{x}천명<extra>화성시 여</extra>'
+    },
+    {
+      name: '동탄 남', x: dtMales, y: groups, type: 'bar', orientation: 'h',
+      marker: { color: 'rgba(39,174,96,0.85)' },
+      hovertemplate: '%{y}: %{customdata}천명<extra>동탄 남</extra>',
+      customdata: dtMales.map(v => Math.abs(v))
+    },
+    {
+      name: '동탄 여', x: dtFems, y: groups, type: 'bar', orientation: 'h',
+      marker: { color: 'rgba(243,156,18,0.85)' },
+      hovertemplate: '%{y}: %{x}천명<extra>동탄 여</extra>'
+    }
+  ], {
+    ...CHART_LAYOUT_BASE,
+    title: { text: '연령대별 인구 구조 비교 (화성시 2026.02 / 동탄 2026.01, 천명)', font: { size: 14 } },
+    barmode: 'group',
+    bargap: 0.1,
     xaxis: {
       tickformat: 'd',
-      tickvals: [-100, -75, -50, -25, 25, 50, 75, 100],
-      ticktext: ['100', '75', '50', '25', '25', '50', '75', '100'],
       gridcolor: '#eaeaea', title: '← 남성 (천명)  /  여성 (천명) →'
     },
     yaxis: { automargin: true },
-    legend: { orientation: 'h', y: -0.15 },
-    margin: { t: 40, r: 20, b: 60, l: 80 }
+    legend: { orientation: 'h', y: -0.18 },
+    margin: { t: 40, r: 20, b: 70, l: 80 }
   }, PLOTLY_CONFIG);
 }
 

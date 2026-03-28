@@ -79,53 +79,41 @@
     {
       "year": 2024,
       "population": 968821
+    },
+    {
+      "year": 2025,
+      "population": 989969
+    },
+    {
+      "year": 2026,
+      "population": 992956
     }
   ],
   "age_groups": [
     {
-      "group": "0~9세",
-      "male": 47227,
-      "female": 44970
+      "group": "0~14세",
+      "male": 45465,
+      "female": 43379
     },
     {
-      "group": "10~19세",
-      "male": 57663,
-      "female": 55724
+      "group": "15~29세",
+      "male": 83183,
+      "female": 79234
     },
     {
-      "group": "20~29세",
-      "male": 59663,
-      "female": 51204
+      "group": "30~49세",
+      "male": 171182,
+      "female": 151494
     },
     {
-      "group": "30~39세",
-      "male": 85161,
-      "female": 75417
+      "group": "50~64세",
+      "male": 129883,
+      "female": 115100
     },
     {
-      "group": "40~49세",
-      "male": 97395,
-      "female": 87842
-    },
-    {
-      "group": "50~59세",
-      "male": 77538,
-      "female": 67814
-    },
-    {
-      "group": "60~69세",
-      "male": 50362,
-      "female": 46802
-    },
-    {
-      "group": "70~79세",
-      "male": 20084,
-      "female": 21904
-    },
-    {
-      "group": "80세 이상",
-      "male": 7788,
-      "female": 14263
+      "group": "65세+",
+      "male": 84891,
+      "female": 89145
     }
   ],
   "samsung_workplaces": [
@@ -141,5 +129,183 @@
       "lng": 127.0644,
       "employees": 5000
     }
-  ]
+  ],
+  "_age_source": "KOSIS DT_1B04005N 화성시(41590) 성별·5세별 주민등록인구, 2026.02 기준",
+  "dongtan_monthly": {
+    "_source": "KOSIS DT_1B04005N 동탄1~9동(9개 행정동) 합산, 기준=202601",
+    "_scope": "동탄1~9동 합산 (동탄구 전체)",
+    "data": [
+      {
+        "ym": "202303",
+        "population": 394132
+      },
+      {
+        "ym": "202304",
+        "population": 394914
+      },
+      {
+        "ym": "202305",
+        "population": 395777
+      },
+      {
+        "ym": "202306",
+        "population": 396409
+      },
+      {
+        "ym": "202307",
+        "population": 396981
+      },
+      {
+        "ym": "202308",
+        "population": 397512
+      },
+      {
+        "ym": "202309",
+        "population": 398058
+      },
+      {
+        "ym": "202310",
+        "population": 398635
+      },
+      {
+        "ym": "202311",
+        "population": 398982
+      },
+      {
+        "ym": "202312",
+        "population": 399863
+      },
+      {
+        "ym": "202401",
+        "population": 400313
+      },
+      {
+        "ym": "202402",
+        "population": 399941
+      },
+      {
+        "ym": "202403",
+        "population": 399880
+      },
+      {
+        "ym": "202404",
+        "population": 399976
+      },
+      {
+        "ym": "202405",
+        "population": 400359
+      },
+      {
+        "ym": "202406",
+        "population": 401630
+      },
+      {
+        "ym": "202407",
+        "population": 404395
+      },
+      {
+        "ym": "202408",
+        "population": 406036
+      },
+      {
+        "ym": "202409",
+        "population": 406769
+      },
+      {
+        "ym": "202410",
+        "population": 407726
+      },
+      {
+        "ym": "202411",
+        "population": 408746
+      },
+      {
+        "ym": "202412",
+        "population": 409497
+      },
+      {
+        "ym": "202501",
+        "population": 410790
+      },
+      {
+        "ym": "202502",
+        "population": 412385
+      },
+      {
+        "ym": "202503",
+        "population": 413473
+      },
+      {
+        "ym": "202504",
+        "population": 413911
+      },
+      {
+        "ym": "202505",
+        "population": 414311
+      },
+      {
+        "ym": "202506",
+        "population": 414684
+      },
+      {
+        "ym": "202507",
+        "population": 415675
+      },
+      {
+        "ym": "202508",
+        "population": 417854
+      },
+      {
+        "ym": "202509",
+        "population": 419866
+      },
+      {
+        "ym": "202510",
+        "population": 421006
+      },
+      {
+        "ym": "202511",
+        "population": 421732
+      },
+      {
+        "ym": "202512",
+        "population": 422553
+      },
+      {
+        "ym": "202601",
+        "population": 423644
+      }
+    ]
+  },
+  "dongtan_age_groups": {
+    "_source": "KOSIS DT_1B04005N 동탄1~9동 성별·5세별, 2026.01 기준",
+    "groups": [
+      {
+        "group": "0~14세",
+        "male": 23100,
+        "female": 21951
+      },
+      {
+        "group": "15~29세",
+        "male": 40274,
+        "female": 39176
+      },
+      {
+        "group": "30~49세",
+        "male": 75608,
+        "female": 74721
+      },
+      {
+        "group": "50~64세",
+        "male": 52732,
+        "female": 49989
+      },
+      {
+        "group": "65세+",
+        "male": 22018,
+        "female": 24075
+      }
+    ]
+  },
+  "_source": "KOSIS DT_1B04005N 시군구별(읍면동) 주민등록인구, 화성시(41590), 202602 최신"
 }
