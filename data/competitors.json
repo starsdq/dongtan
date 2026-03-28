@@ -1,6 +1,6 @@
 {
-  "_comment": "경쟁 상업시설 위치 데이터. 좌표는 네이버 지도 기준.",
-  "_updated": "2025-12",
+  "_comment": "경쟁 상업시설 위치 데이터. 좌표는 네이버 지도 기준. 면적은 영업면적.",
+  "_updated": "2026-03",
   "facilities": [
     {
       "id": "dongtan_lotte",
@@ -8,9 +8,9 @@
       "category": "department",
       "lat": 37.2101,
       "lng": 127.0826,
-      "area_m2": 89000,
-      "opened": "2016",
-      "note": "동탄 대표 백화점, GTX 동탄역 인접"
+      "area_m2": 93958,
+      "opened": "2021",
+      "note": "2021.8.20 개점, 경기도 최대 규모 백화점, GTX 동탄역 인접"
     },
     {
       "id": "timeterra",
@@ -23,24 +23,14 @@
       "note": "주상복합 내 쇼핑몰, 2022년 타임테라스로 재개장"
     },
     {
-      "id": "ikea_dongtan",
-      "name": "이케아 동탄점 (예정)",
-      "category": "furniture",
-      "lat": 37.2050,
-      "lng": 127.0800,
-      "area_m2": 55000,
-      "opened": "예정",
-      "note": "개발 진행 중"
-    },
-    {
-      "id": "starfield_dongtan",
-      "name": "스타필드 동탄 (예정)",
+      "id": "starfield_market_dongtan",
+      "name": "스타필드마켓 동탄",
       "category": "mall",
       "lat": 37.2020,
       "lng": 127.0780,
-      "area_m2": 180000,
-      "opened": "예정",
-      "note": "동탄2 랜드마크 복합쇼핑몰"
+      "area_m2": 18430,
+      "opened": "2025",
+      "note": "이마트 동탄점 리뉴얼 재개장(2025.7.31), 대형 복합몰 아님"
     },
     {
       "id": "suwon_lotte",
@@ -54,13 +44,13 @@
     },
     {
       "id": "suwon_galleria",
-      "name": "갤러리아백화점 수원점",
+      "name": "갤러리아백화점 광교점",
       "category": "department",
       "lat": 37.2774,
       "lng": 127.0431,
-      "area_m2": 62000,
+      "area_m2": 73000,
       "opened": "2020",
-      "note": "광교 신도시 내 프리미엄 백화점"
+      "note": "2020.3.2 개점, 광교 신도시 내 프리미엄 백화점, 렘 콜하스 OMA 설계"
     },
     {
       "id": "pangyo_hyundai",
@@ -68,19 +58,9 @@
       "category": "department",
       "lat": 37.3943,
       "lng": 127.1110,
-      "area_m2": 85000,
+      "area_m2": 92578,
       "opened": "2015",
-      "note": "판교테크노밸리 인접, 고소득층 밀집"
-    },
-    {
-      "id": "osan_lotte",
-      "name": "롯데아울렛 오산점",
-      "category": "outlet",
-      "lat": 37.1547,
-      "lng": 127.0697,
-      "area_m2": 45000,
-      "opened": "2017",
-      "note": "동탄 남쪽 인접 아울렛"
+      "note": "2015.8.21 개점, 판교테크노밸리 인접, 고소득층 밀집"
     }
   ],
   "categories": {
