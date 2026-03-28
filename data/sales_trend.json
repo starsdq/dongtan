@@ -42,46 +42,52 @@
   ],
   "store_trend": [
     {
+      "year": 2016,
+      "opened": 15865,
+      "closed": 9160,
+      "net": 6705
+    },
+    {
+      "year": 2017,
+      "opened": 18582,
+      "closed": 11058,
+      "net": 7524
+    },
+    {
       "year": 2018,
-      "opened": 820,
-      "closed": 590,
-      "net": 230
+      "opened": 19095,
+      "closed": 11540,
+      "net": 7555
     },
     {
       "year": 2019,
-      "opened": 950,
-      "closed": 640,
-      "net": 310
+      "opened": 21873,
+      "closed": 12820,
+      "net": 9053
     },
     {
       "year": 2020,
-      "opened": 680,
-      "closed": 820,
-      "net": -140
+      "opened": 23418,
+      "closed": 13453,
+      "net": 9965
     },
     {
       "year": 2021,
-      "opened": 1050,
-      "closed": 710,
-      "net": 340
+      "opened": 26134,
+      "closed": 14595,
+      "net": 11539
     },
     {
       "year": 2022,
-      "opened": 1280,
-      "closed": 780,
-      "net": 500
+      "opened": 23563,
+      "closed": 14619,
+      "net": 8944
     },
     {
       "year": 2023,
-      "opened": 1350,
-      "closed": 820,
-      "net": 530
-    },
-    {
-      "year": 2024,
-      "opened": 1420,
-      "closed": 890,
-      "net": 530
+      "opened": 23905,
+      "closed": 16498,
+      "net": 7407
     }
   ],
   "hourly_footfall": {
@@ -130,5 +136,6 @@
       102,
       58
     ]
-  }
+  },
+  "_store_trend_source": "통계청 기업생멸행정통계 DT_6BD1132, 화성시 전체, 2016~2023 (2024 소멸 미집계 제외)"
 }

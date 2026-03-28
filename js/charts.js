@@ -127,7 +127,7 @@ async function renderStoreTrend() {
     }
   ], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '점포 개폐업 현황', font: { size: 14 } },
+    title: { text: '기업 신생·소멸 현황 (화성시, 2016~2023)', font: { size: 14 } },
     barmode: 'group',
     xaxis: { title: '' },
     yaxis: { title: '점포 수 (개)', gridcolor: '#eaeaea' },
