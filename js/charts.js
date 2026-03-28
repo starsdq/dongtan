@@ -191,7 +191,7 @@ async function renderPopWday() {
     hovertemplate: '%{x}: 지수 %{y}<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: `요일별 생활인구 지수 (${pop_by_wday.scope || '동탄'}, 2025.06, 100=평균)`, font: { size: 14 } },
+    title: { text: `동탄 요일별 생활인구 지수 (${pop_by_wday.scope || '동탄 9개 행정동'}, 2025.06, 100=평균)`, font: { size: 14 } },
     xaxis: { title: '' },
     yaxis: { title: '지수 (100=평균)', gridcolor: '#eaeaea', range: [70, 120] },
     margin: { t: 40, r: 20, b: 50, l: 70 },
