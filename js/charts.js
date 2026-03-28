@@ -253,7 +253,7 @@ async function renderStoreCount() {
     hovertemplate: '%{y}: %{x}개<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '업종별 점포 수 (동탄 반경 3km, 2024년)', font: { size: 14 } },
+    title: { text: '업종별 점포 수 (동탄 반경 3km, 2025.12 기준)', font: { size: 14 } },
     xaxis: { title: '점포 수 (개)', gridcolor: '#eaeaea' },
     yaxis: { automargin: true },
     margin: { t: 40, r: 20, b: 60, l: 90 }
