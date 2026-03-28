@@ -139,28 +139,38 @@ async function renderStoreTrend() {
   }, PLOTLY_CONFIG);
 }
 
-/* ── 시간대별 생활인구 비율 ── */
+/* ── 시간대×요일 생활인구 히트맵 ── */
 async function renderPopTimeslot() {
   const res = await fetch('data/sales_trend.json');
-  const { pop_by_timeslot } = await res.json();
+  const { pop_by_timeslot, pop_by_wday } = await res.json();
 
-  const colors = pop_by_timeslot.rates.map((v, i) =>
-    i === pop_by_timeslot.rates.indexOf(Math.max(...pop_by_timeslot.rates))
-      ? '#1a3a5c' : '#2e86c1'
-  );
+  // 화성시 시간대별 비율 × 동탄 요일별 지수 조합
+  const rates = pop_by_timeslot.rates;
+  const idx   = pop_by_wday.index;                          // [월,화,수,목,금,토,일]
+  const wdayAvg = idx.slice(0, 5).reduce((a, b) => a + b) / 5; // 평일 평균 지수
+  const scale = r => Math.round(r * 10) / 10;
+
+  const z = [
+    rates.map(r => scale(r * wdayAvg / 100)),   // 평일
+    rates.map(r => scale(r * idx[5]    / 100)),  // 토요일
+    rates.map(r => scale(r * idx[6]    / 100)),  // 일요일
+  ];
 
   Plotly.newPlot('chart-pop-timeslot', [{
+    z,
     x: pop_by_timeslot.labels,
-    y: pop_by_timeslot.rates,
-    type: 'bar',
-    marker: { color: colors },
-    hovertemplate: '%{x}: %{y}%<extra></extra>'
+    y: ['평일', '토요일', '일요일'],
+    type: 'heatmap',
+    colorscale: [[0, '#d6eaf8'], [0.5, '#2e86c1'], [1, '#1a3a5c']],
+    hovertemplate: '%{y} %{x}: %{z}%<extra></extra>',
+    showscale: true,
+    colorbar: { title: '생활인구<br>비율(%)', len: 0.8 }
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '시간대별 생활인구 비율 (화성시, 2025.06)', font: { size: 14 } },
-    xaxis: { title: '' },
-    yaxis: { title: '비율 (%)', gridcolor: '#eaeaea' },
-    margin: { t: 40, r: 20, b: 60, l: 60 }
+    title: { text: '시간대·요일별 생활인구 (화성시 시간대 × 동탄 요일 조합, 2025.06)', font: { size: 14 } },
+    xaxis: { title: '시간대' },
+    yaxis: { automargin: true },
+    margin: { t: 40, r: 80, b: 60, l: 70 }
   }, PLOTLY_CONFIG);
 }
 
