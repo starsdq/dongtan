@@ -139,27 +139,95 @@ async function renderStoreTrend() {
   }, PLOTLY_CONFIG);
 }
 
-/* ── 유동인구 시간대 히트맵 ── */
-async function renderFootfallHeatmap() {
+/* ── 시간대별 생활인구 비율 ── */
+async function renderPopTimeslot() {
   const res = await fetch('data/sales_trend.json');
-  const { hourly_footfall } = await res.json();
+  const { pop_by_timeslot } = await res.json();
 
-  const z = [hourly_footfall.weekday, hourly_footfall.saturday, hourly_footfall.sunday];
-  const y = ['평일', '토요일', '일요일'];
+  const colors = pop_by_timeslot.rates.map((v, i) =>
+    i === pop_by_timeslot.rates.indexOf(Math.max(...pop_by_timeslot.rates))
+      ? '#1a3a5c' : '#2e86c1'
+  );
 
-  Plotly.newPlot('chart-footfall', [{
-    z, x: hourly_footfall.hours, y,
-    type: 'heatmap',
-    colorscale: [[0,'#d6eaf8'], [0.5,'#2e86c1'], [1,'#1a3a5c']],
-    hovertemplate: '%{y} %{x}: 지수 %{z}<extra></extra>',
-    showscale: true,
-    colorbar: { title: '유동인구<br>지수', len: 0.8 }
+  Plotly.newPlot('chart-pop-timeslot', [{
+    x: pop_by_timeslot.labels,
+    y: pop_by_timeslot.rates,
+    type: 'bar',
+    marker: { color: colors },
+    hovertemplate: '%{x}: %{y}%<extra></extra>'
   }], {
     ...CHART_LAYOUT_BASE,
-    title: { text: '시간대·요일별 유동인구 지수 (추정치, 100=평균)', font: { size: 14 } },
-    xaxis: { title: '시간대' },
-    yaxis: { automargin: true },
-    margin: { t: 40, r: 80, b: 60, l: 70 }
+    title: { text: '시간대별 생활인구 비율 (화성시, 2025.06)', font: { size: 14 } },
+    xaxis: { title: '' },
+    yaxis: { title: '비율 (%)', gridcolor: '#eaeaea' },
+    margin: { t: 40, r: 20, b: 60, l: 60 }
+  }, PLOTLY_CONFIG);
+}
+
+/* ── 요일별 생활인구 지수 ── */
+async function renderPopWday() {
+  const res = await fetch('data/sales_trend.json');
+  const { pop_by_wday } = await res.json();
+
+  const colors = pop_by_wday.labels.map(d =>
+    d === '토' || d === '일' ? '#e74c3c' : '#27ae60'
+  );
+
+  Plotly.newPlot('chart-pop-wday', [
+    {
+      x: pop_by_wday.labels,
+      y: pop_by_wday.index,
+      type: 'bar',
+      marker: { color: colors },
+      hovertemplate: '%{x}: 지수 %{y}<extra></extra>'
+    },
+    {
+      x: [pop_by_wday.labels[0], pop_by_wday.labels[pop_by_wday.labels.length - 1]],
+      y: [100, 100],
+      type: 'scatter', mode: 'lines',
+      line: { color: '#aaaaaa', width: 1.5, dash: 'dot' },
+      showlegend: false,
+      hoverinfo: 'skip'
+    }
+  ], {
+    ...CHART_LAYOUT_BASE,
+    title: { text: '요일별 생활인구 지수 (화성시, 2025.06, 100=평균)', font: { size: 14 } },
+    xaxis: { title: '' },
+    yaxis: { title: '지수 (100=평균)', gridcolor: '#eaeaea', range: [70, 120] },
+    margin: { t: 40, r: 20, b: 50, l: 70 }
+  }, PLOTLY_CONFIG);
+}
+
+/* ── 성별·연령별 생활인구 구성 ── */
+async function renderPopSexAge() {
+  const res = await fetch('data/sales_trend.json');
+  const { pop_by_sex } = await res.json();
+
+  Plotly.newPlot('chart-pop-sex-age', [
+    {
+      name: '남성',
+      x: pop_by_sex.age_labels,
+      y: pop_by_sex.age_male,
+      type: 'bar',
+      marker: { color: '#2e86c1' },
+      hovertemplate: '%{x} 남성: %{y}%<extra></extra>'
+    },
+    {
+      name: '여성',
+      x: pop_by_sex.age_labels,
+      y: pop_by_sex.age_female,
+      type: 'bar',
+      marker: { color: '#e74c3c' },
+      hovertemplate: '%{x} 여성: %{y}%<extra></extra>'
+    }
+  ], {
+    ...CHART_LAYOUT_BASE,
+    title: { text: '성별·연령별 생활인구 구성 (화성시, 2025.06, 전체 대비 %)', font: { size: 14 } },
+    barmode: 'group',
+    xaxis: { title: '' },
+    yaxis: { title: '비율 (%)', gridcolor: '#eaeaea' },
+    legend: { orientation: 'h', y: -0.18 },
+    margin: { t: 40, r: 20, b: 60, l: 60 }
   }, PLOTLY_CONFIG);
 }
 
@@ -194,6 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAgePyramid();
   renderIndustrySales();
   renderStoreTrend();
-  renderFootfallHeatmap();
+  renderPopTimeslot();
+  renderPopWday();
+  renderPopSexAge();
   renderStoreCount();
 });

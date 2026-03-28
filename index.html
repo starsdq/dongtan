@@ -358,11 +358,24 @@
     <h2>소비 특성 분석</h2>
     <p class="chapter-desc">시간대별 유동인구 패턴과 업종별 소비 규모를 분석합니다.</p>
 
+    <div class="grid-2">
+      <div class="card">
+        <h3>시간대별 생활인구 비율 <span class="info-tip" data-tip="출처: 경기데이터드림 TB25BPTPOPSIGTIMEM · 화성시 · 2025.06">ⓘ</span></h3>
+        <div id="chart-pop-timeslot" class="chart-container"></div>
+      </div>
+      <div class="card">
+        <h3>요일별 생활인구 지수 <span class="info-tip" data-tip="출처: 경기데이터드림 TB25BPTPOPDAYDONGM · 화성시 행정동 합산 · 2025.06 · 100=평균">ⓘ</span></h3>
+        <div id="chart-pop-wday" class="chart-container"></div>
+      </div>
+    </div>
+
     <div class="card">
-      <h3>시간대·요일별 유동인구 지수 (추정치) <span class="info-tip" data-tip="공공 실측 데이터 없음 · 상권 패턴 추정치, 100=평균">ⓘ</span></h3>
-      <div id="chart-footfall" class="chart-container tall"></div>
-      <div style="margin-top:12px;padding:12px 16px;background:#fef9e7;border-radius:6px;font-size:13px">
-        <b>인사이트:</b> 토·일요일 오후 2~4시 피크가 가장 뚜렷. 평일은 저녁 6~8시 집중 (퇴근 후 쇼핑). 주말 오전 방문도 비교적 활발 → 패밀리 단위 나들이 수요.
+      <h3>성별·연령별 생활인구 구성 <span class="info-tip" data-tip="출처: 경기데이터드림 TB25BPTPOPSIGSXAGEM · 화성시 · 2025.06 · 전체 대비 비율">ⓘ</span></h3>
+      <div id="chart-pop-sex-age" class="chart-container"></div>
+      <div style="margin-top:12px;padding:12px 16px;background:#d6eaf8;border-radius:6px;font-size:13px">
+        <b>인사이트:</b> 저녁 18~22시에 생활인구가 피크(26.9%)를 형성 → 퇴근 후 외식·쇼핑 수요 집중.
+        주중(목 109.0 지수)이 주말(일 82.5)보다 현저히 높음 → 삼성 반도체 공장 교대 근무자 포함 산업도시 특성.
+        남성(52.7%)이 여성(47.3%)보다 약간 많고, 30~40대 비중이 가장 높음.
       </div>
     </div>
 
