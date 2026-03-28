@@ -1,5 +1,5 @@
 {
-  "_comment": "업종별 월평균 매출. 출처: 경기데이터드림 TBGGESTDEVALLSTM (2025년 2분기, 동탄 내 18개 가로상권 합산)",
+  "_comment": "업종별 월평균 매출. 출처: 경기데이터드림 TBGGESTDEVALLSTM (2025년 2분기, 동탄 가로상권 12개 합산)",
   "_updated": "2026-03",
   "industry_store_count": {
     "_source": "소상공인시장진흥공단 B553077 storeListInRadius (2024년 기준, 동탄 반경 3km×3지점, 중복 제거 후 20,664개)",
@@ -17,27 +17,39 @@
   "industry_sales": [
     {
       "industry": "외식",
-      "monthly_avg_mil": 26946
+      "monthly_avg_mil": 63257
     },
     {
-      "industry": "식품·소매",
-      "monthly_avg_mil": 20468
+      "industry": "소매",
+      "monthly_avg_mil": 34983
     },
     {
       "industry": "의료·건강",
-      "monthly_avg_mil": 9758
+      "monthly_avg_mil": 26329
     },
     {
       "industry": "교육·학원",
-      "monthly_avg_mil": 3542
+      "monthly_avg_mil": 9980
+    },
+    {
+      "industry": "기타",
+      "monthly_avg_mil": 4043
     },
     {
       "industry": "뷰티·미용",
-      "monthly_avg_mil": 1630
+      "monthly_avg_mil": 3939
     },
     {
       "industry": "스포츠·여가",
-      "monthly_avg_mil": 93
+      "monthly_avg_mil": 2959
+    },
+    {
+      "industry": "수리·서비스",
+      "monthly_avg_mil": 1426
+    },
+    {
+      "industry": "숙박",
+      "monthly_avg_mil": 1168
     }
   ],
   "store_trend": [
@@ -137,5 +149,19 @@
       58
     ]
   },
-  "_store_trend_source": "통계청 기업생멸행정통계 DT_6BD1132, 화성시 전체, 2016~2023 (2024 소멸 미집계 제외)"
+  "_store_trend_source": "통계청 기업생멸행정통계 DT_6BD1132, 화성시 전체, 2016~2023 (2024 소멸 미집계 제외)",
+  "_industry_sales_bizdist": [
+    "동탄119안전센터",
+    "동탄공원로1길",
+    "동탄공원로3길",
+    "동탄기흥로257번가길",
+    "동탄기흥로257번나길",
+    "동탄문화센터로",
+    "동탄반송1길",
+    "동탄반송3길",
+    "동탄우체국",
+    "동탄중심상가1길",
+    "동탄하나1길",
+    "메가박스동탄"
+  ]
 }
